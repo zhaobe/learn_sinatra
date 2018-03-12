@@ -6,12 +6,8 @@ class HelloWorld < Sinatra::Base
 		register Sinatra::Reloader
 	end
 
-	get '/' do
-		'Hello World'
-	end
-
-	# route for /yourName
-	get '/:name' do
-		"Hello, #{params[:name]}"
+	# route for a greeting (optional to pass /YourName)
+	get '/?:name?' do
+		"#{params[:name] ? 'Hello '+params[:name] : 'What\'s your name?' }"
 	end
 end
