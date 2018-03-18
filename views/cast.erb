@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Marvel Movie Voting</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container">
+    <p>You voted for:
+        <%= Choices[@vote] %>
+    </p>
+    <a href="/" class="btn btn-info">Back to the voting page</a>
+    <a href="/results" class="btn btn-info">See the results</a>
+</body>
+
+</html>

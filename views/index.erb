@@ -2,26 +2,25 @@
 <html>
 
 <head>
-    <meta charset='UTF-8' />
+    <meta charset="UTF-8" />
     <title>Marvel Movie Voting</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body class='container'>
-    <h1><%= @title %></h1>
+<body class="container">
     <p>Which Marvel movie is your favorite?</p>
-    <form action='cast' method='post'>
-        <ul class='unstyled'>
+    <form action="cast" method="post">
+        <ul class="unstyled">
             <% Choices.each do |id, text| %>
                 <li>
-                    <label class='radio'>
-                        <input type='radio' name='vote' value='<%= id %>' id='vote_<%= id %>' />
+                    <label class="radio">
+                        <input type="radio" name="vote" value="<%= id %>" id="vote_<%= id %>" />
                         <%= text %>
                     </label>
                 </li>
                 <% end %>
         </ul>
-        <button type='submit' class='btn btn-primary'>Cast this vote!</button>
+        <button type="submit" class="btn btn-primary">Cast this vote!</button>
     </form>
 </body>
 
