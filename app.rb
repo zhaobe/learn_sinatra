@@ -36,3 +36,8 @@ Choices = {
   'TH3' => 'Thor 3',
   'BP' => 'Black Panther',
 }
+
+get '/results' do
+  @votes = { 'IM' => 2, 'CA' => 1, 'AV' => 5}
+  erb :results
+end
