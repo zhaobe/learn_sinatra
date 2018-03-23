@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require 'yaml/store'
 
 configure :development do
 	register Sinatra::Reloader
@@ -13,6 +14,12 @@ end
 post '/cast' do
   @title = 'Thanks for casting your vote!'
   @vote  = params['vote']
+  @store = YAML::Store.new 'votes.yml'
+  @store.transaction do
+    @store['votes'] ||= {}
+    @store['votes'][@vote] ||= 0
+    @store['votes'][@vote] += 1
+  end
   erb :cast
 end
 
@@ -38,6 +45,8 @@ Choices = {
 }
 
 get '/results' do
-  @votes = { 'IM' => 2, 'CA' => 1, 'AV' => 5}
+  @title = 'Results so far:'
+  @store = YAML::Store.new 'votes.yml'
+  @votes = @store.transaction { @store['votes']}
   erb :results
 end
