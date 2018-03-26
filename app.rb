@@ -1,9 +1,15 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'yaml/store'
+require 'rack/csrf'
 
 configure :development do
 	register Sinatra::Reloader
+end
+
+configure do
+  enable :sessions
+  use Rack::Csrf, :raise => true
 end
 
 get '/' do
@@ -49,4 +55,11 @@ get '/results' do
   @store = YAML::Store.new 'votes.yml'
   @votes = @store.transaction { @store['votes']}
   erb :results
+end
+
+# helper for csrf token
+helpers do
+  def csrf_tag
+    Rack::Csrf.csrf_tag(env)
+  end
 end

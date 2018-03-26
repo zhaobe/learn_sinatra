@@ -10,6 +10,7 @@
 <body class="container">
     <p>Which Marvel movie is your favorite?</p>
     <form action="cast" method="post">
+      <%= csrf_tag %>
         <ul class="unstyled">
             <% Choices.each do |id, text| %>
                 <li>
