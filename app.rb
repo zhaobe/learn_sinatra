@@ -14,7 +14,8 @@ end
 
 get '/' do
 	@title = 'Welcome to Marvel movies voting'
-	erb :vote
+	# erb :vote
+  haml :index
 end
 
 post '/cast' do
