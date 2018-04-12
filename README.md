@@ -12,17 +12,17 @@
 
 # New restructuring for project
 - app
-	|- controllers
-		|- app.rb
-	|- models
-		|- user.rb
-	|- views
-		|- registrations
-		|- sessions
-		|- users
+	- controllers
+		- app.rb
+	- models
+		- user.rb
+	- views
+		- registrations
+		- sessions
+		- users
 - config
 
-# TODO
+# Remainder tasks:
 - change login form to use post method instead of get method
 - restructure the project
 - work on user auth
