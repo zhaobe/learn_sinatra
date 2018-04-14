@@ -7,15 +7,18 @@ configure :development do
 	register Sinatra::Reloader
 end
 
-configure do
-  enable :sessions
-  use Rack::Csrf, :raise => true
-end
+# configure do
+#   enable :sessions
+#   use Rack::Csrf, :raise => true
+# end
 
 get '/' do
-	@title = 'Welcome to Marvel movies voting'
+	# @title = 'Welcome to Marvel movies voting'
 	# erb :vote
   haml :index
+end
+
+post '/' do
 end
 
 post '/cast' do

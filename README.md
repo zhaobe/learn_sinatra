@@ -5,6 +5,7 @@
 - `gem install thin`
 - `gem install sinatra-contrib` for [auto-reloader](http://sinatrarb.com/contrib/reloader)
 - `gem install rack_csrf`
+- `gem install rake`
 - run command: `ruby myapp.rb`
 
 # Basics
